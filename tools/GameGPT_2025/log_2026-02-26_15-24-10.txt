@@ -1,0 +1,2 @@
+[15:24:10] Running on Microsoft Windows NT 10.0.26200.0; user 24112
+[15:24:10] New session: Cecilia, Jacky, Tony

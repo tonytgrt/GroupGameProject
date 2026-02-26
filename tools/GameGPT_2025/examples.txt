@@ -1,0 +1,95 @@
+You are tasked with coming up with new concepts for video games. They follow a list of strict constraints. You can be as creative as you want to be, but you need to incorporate the constraints and adhere to the template below. Here are a few examples:
+
+- Constraints -
+Design challenge: In-Game Economy
+Theme: Drama
+Genre: 2D Platformer
+Core Aesthetic: Social Experience
+Objective: Time/Timing
+
+- Concept -
+Title: God Is Bored
+Idea: There exists a stereotypical Hero who hopes to rescue his princess in a story just like any other fairy tale. Unfortunately for our Hero, God is bored. For some temporary amusement, God will be using his powers to make the path to the princess far more difficult, creating enemies and obstacles for him to overcome as the Hero navigates through the levels.
+
+Features
+- One player controls the Hero, running, jumping, and fighting through levels to reach his princess.
+- The other player controls God on the same screen, utilizing his rechargeable resources to spawn and control enemies and obstacles in real time that the Hero must overcome to beat each level.
+- God will have a selection of enemies, obstacles, and other materials to drop into the current map the player is playing through. God will use an interface on the screen to manage what he is doing, all of which is available for the Hero to see as well.
+- Each enemy, obstacle, and otherwise resource God has will have a recharge meter that needs to fill up before he can use it again in the level.
+- These meters will recharge faster as the player progresses through the level, creating a negative feedback loop for the Hero.
+- God will be able to issue commands to enemies and obstacles he spawns, such as chasing the Hero at all costs, chasing in a cohesive formation, guarding one spot, jumping, etc.
+- God will have limited components that he can attach to enemies, such as giving wings to one instance of an enemy and healing abilities to another.
+- The Hero will thus be playing through a constantly adapting platformer where God can and will introduce novel challenging situations to overcome.
+- The Hero can collect coins and upgrade his equipment and skills; likewise, God can automatically amass resources over time and expand his selection of enemies and obstacles to unleash on the Hero.
+- God can try and piece together his resources to create very interesting and difficult challenges for the Hero to overcome, but he must design these quickly as the Hero should be making progress every second
+
+Player Challenge
+Player 1 tries to complete constantly-evolving platformer levels while Player 2 tries to make use of his limited resources to prevent Player 1’s success.
+
+Design Goals
+Social experience: The game requires two players to play, and it is an asymmetric experience where the two players are continuously interacting through completely different game mechanics.
+Novel: No two gameplay sessions should be the same, as the amount of freedom God is giving to influence the structure of each level against a human controlled Hero will lead to an incredible amount of emergent behavior.
+Evolving: As the God and the Hero continue playing more, then will unlock new ways to challenge the player and overcome these challenges respectively.
+
+##
+- Constraints -
+Design challenge: Squad-based
+Theme: Alternate History
+Genre: Racing
+Core Aesthetic: Physical Sensation
+Objective: Spatially Align
+
+- Concept -
+Title: Team Runners
+Idea: Run through levels set in different historical backgrounds and challenges with a team of runners each with unique special abilities. Switch character on the go while running to cope with various challenges.
+
+Features
+- Levels set in different historical backgrounds so they have different traps, enemies, obstacles and environment.
+- Player selects a team of characters instead of one before starting the game. Player can switch between characters while running.
+- Each character with unique strength and weakness. For example, Character A has great linear acceleration and top speed but with longer reaction time for dodging, jumping and etc. Character B has the opposite. As a result a good player will switch to character A while running on an straight and open road and switch to B when there’s lots of obstacles on the track.
+- There are “energy zones” on the track; being able to follow them provide your characters with extra mana to cast skills.
+- Each character has two skills. One is a regular skill that can be casted often, the other is an ultimate which can only be casted once in a while and all character’s ultimates share the same cool down.
+
+Player Challenge
+- Ability to follow lines, marls on the track
+- Good reflex to dodge and attack
+- Good timing of casting skills at right moment.
+- Awareness of each character’s strength and weakness so that can always switch to the best character for obstacles at the moment.
+- Player enjoys the physical sensation of speed and flow and dodging.
+
+Design Goals
+Follow the design constraints given and make it a plausible and fun game.
+
+##
+- Constraints -
+Design challenge: Emergent Systems
+Theme: Modern Sci-Fi
+Genre: Puzzle
+Core Aesthetic: Escapism
+Objective: Avoid
+
+- Concept -
+Title: Shaft Chaos
+Idea: After discovering remnants of an advanced civilization, an exploratory mining team is trapped when the exit shaft collapses. The mining team must work together to escape the mine while avoiding the mysterious beings that have seemingly awoken
+
+Features
+The game is a platformer, where the player controls the mining team to solve puzzles to exit each level.
+- Each member of the mining team has their own attributes, and each wields a different advanced piece of technology scavenged from the ruins they have discovered.
+- Gravity gun
+- Swap gun
+- Laser drill
+- XRay gun
+- During play, new types of mysterious figures either hinder or help players with hints or additional obstacles.
+- The team does not know how to fully utilize the alien weaponry, and the weaponry sometimes malfunctions or performs in an unexpected fashion.
+- The mine itself is slowly being filled with a dangerous poison that slowly turns the team into an unknown species.
+- If the mining team fully transforms, they lose consciousness.
+- However, the unknown species is capable fully controlling the weaponry, which means that the weaponry will malfunction less often and become more powerful.
+
+Player Challenge
+Player tries to escape the mine by completing the puzzles.
+
+Design Goals
+Challenging: The puzzles should be challenging and require multiple steps and cooperation between the team.
+Decision making: Players need to decide how much they want their team to turn into aliens, which allows them better control over their weaponry.
+
+##

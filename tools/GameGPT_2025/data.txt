@@ -1,0 +1,5 @@
+Theme=Tiny vs Huge; It's Not a Bug it's a Feature; Forking; Optical Illusion; Lights and Shadows; You are a cat; Too much is never enough; Fractal; Burning; Recursion; Inertia; Queues; Reverse/Reply; Mechanics and Gears; Twisted; Square Root; Roadkill
+Genre=Strategy; Fighting; 2D Platformer; 2D Shooter; Sim; Adventure; Puzzle; Racing; Dance/Rhythm
+CoreAesthetic=Physical Sensation; Growth/Advancement; Social Experience; Escapism; Narrative/Drama; Hand/Eye Coordination; Discovery/Exploration; Deliberate Rule Breaking; Control/Leadership; Probability/Chance
+Objective=Chase; Time or Timing; Kill/Destroy; Build; Collect; Avoid; Spatially Align; Escape; Explore; Solve
+DesignChallenge=Squad-Based; Non-standard Control Scheme; Diplomacy; Feedback Loops; In-Game Economy; Emergent Systems; Fine Art; Training/Education; Fog of War; Abstract Graphics
