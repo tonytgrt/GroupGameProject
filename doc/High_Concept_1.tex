@@ -1,0 +1,116 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\titleformat{\section}{\normalfont\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Umbra: A Light and Shadow Puzzle Game}}\\[2pt]
+    {\small CIS 5680 Group Game Project 1 --- Spring 2026}
+\end{center}
+
+\vspace{-4pt}
+
+\section*{High Concept}
+
+In \textbf{Umbra}, the world is split into two physical states---light and shadow---and only one
+exists at a time in any given tile. Players manipulate light sources to recast shadows across the
+environment, toggling regions between lit and dark to unlock new paths and solve spatial puzzles.
+
+\section*{Genre}
+
+Top-down 2D spatial puzzle game.
+
+\section*{Main Features}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=3pt]
+
+    \item \textbf{Light/Dark World Duality.} Every tile in the level belongs to either the light
+    world or the shadow world at any given moment. Objects, platforms, and pathways exist
+    \textit{only} in one world---a bridge visible in shadow vanishes when light floods in; a door
+    only opens from the lit side. Rearranging light sources rewrites which half of the world is
+    accessible.
+
+    \item \textbf{Morning vs.\ Evening Toggle.} Players switch between a ``morning'' sun angle and
+    an ``evening'' sun angle, flipping the direction and length of every shadow in the level
+    simultaneously. This single binary toggle is the primary puzzle lever: a path blocked in
+    morning becomes open in evening, and vice versa. Mastering \textit{when} to toggle is the
+    core skill.
+
+    \item \textbf{Shadows as Physical Geometry.} Shadow regions are not merely visual---they are
+    solid, traversable terrain. A chasm that cannot be crossed under full light becomes passable
+    once an object is repositioned to cast a shadow-bridge across it. Moving that object, or
+    toggling the sun angle, destroys the bridge. Players must plan object placement and sun state
+    together.
+
+    \item \textbf{Interactive Light Sources.} Portable lanterns, pivotable wall-mounted spotlights,
+    and moveable blocking objects (pillars, crates) let players sculpt the shadow layout before
+    committing to a move. Each level is a static logic puzzle: find the one arrangement that opens
+    a continuous path from start to exit across both light and shadow tiles.
+
+    \item \textbf{Minimalist Silhouette Aesthetic.} Clean geometric shapes with stark contrast
+    between amber-lit tiles and cool blue-grey shadow tiles make the current world state instantly
+    legible. The visual language is simple enough that the puzzle logic---not the art---demands
+    the player's attention.
+
+\end{itemize}
+
+\section*{Player Challenge / Motivation}
+
+The player is an explorer navigating a world where light and shadow are as solid as stone. Each
+self-contained level is a spatial logic puzzle: determine the correct positions of light sources and
+the correct sun state (morning or evening) to open a continuous walkable path to the exit. There is
+no time pressure and no combat---only the satisfaction of reading the environment and finding the
+solution hidden inside it.
+
+\section*{Design Goals}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Elegant.} Two rules---shadows are solid, and the sun has two states---combine to
+    produce a surprisingly large puzzle space without requiring the player to learn many systems.
+    \item \textbf{Satisfying.} Every level has a clean ``aha'' moment when the correct light
+    arrangement snaps into place and the path becomes obvious. Solutions should feel discovered,
+    not stumbled upon.
+    \item \textbf{Readable.} The player should always be able to see clearly which tiles are lit
+    and which are in shadow, and understand exactly what will change when they move a light source
+    or toggle the sun state. No hidden information.
+\end{itemize}
+
+\section*{Target Customer}
+
+Fans of pure puzzle games such as \textit{The Witness}, \textit{Portal}, and \textit{Stephen's
+Sausage Roll}---players who want a single elegant mechanic taken to its logical depth rather than
+narrative or action content. Accessible to ages 12 and up; pick-up-and-play sessions of 5--15
+minutes per level.
+
+\section*{Unique Selling Points}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item The world is literally divided into two physical halves by light and shadow; the player
+    inhabits both by controlling where the boundary falls.
+    \item A single morning/evening sun-angle toggle simultaneously remaps every shadow in the
+    level, creating a whole new traversable topology from the same geometry.
+    \item Pure puzzle focus with no combat, no timers, and no randomness---every solution is
+    deterministic and elegant.
+\end{itemize}
+
+\section*{Competition}
+
+\textit{Contrast} (2013) projects a character's shadow onto walls as a 2D platforming layer, but
+is story-driven and does not feature a light/dark world split. \textit{The Witness} and
+\textit{Portal} share the clean, mechanic-first puzzle philosophy but use completely different
+core mechanics. \textit{Umbra} is unique in using directional shadow casting as the sole map
+editor and spatial puzzle variable in a top-down environment.
+
+\section*{Target Hardware}
+
+PC (Windows), implemented in Unreal Engine 5. Mouse-and-keyboard or gamepad supported.
+
+\end{document}

@@ -1,0 +1,111 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\titleformat{\section}{\normalfont\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Sprout: A Light-Guided Growth Puzzle}}\\[2pt]
+    {\small CIS 5680 Group Game Project 1 --- Spring 2026}
+\end{center}
+
+\vspace{-4pt}
+
+\section*{High Concept}
+
+You are a sentient plant rooted to the ground while a tiny traveler marches forward at a fixed pace
+and cannot stop. Reposition light sources to steer your branches toward the light and away from
+darkness, sculpting a living bridge across each gap before the traveler reaches the edge.
+
+\section*{Genre}
+
+2D side-scrolling light-guided growth puzzle.
+
+\section*{Main Features}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=3pt]
+
+    \item \textbf{You Are the Plant.} The player controls a living plant growing from a fixed root.
+    The plant cannot be steered directly---instead, branches always grow toward the nearest light
+    source. Moving, rotating, or toggling lights in the environment is the only way to guide where
+    new growth goes. The plant's stem and branches form the sole bridge material available.
+
+    \item \textbf{The Relentless Traveler.} A small creature walks automatically at a constant
+    speed in whatever direction it currently faces. It cannot stop, jump, or be commanded. The
+    player must coax the plant to grow a continuous path \textit{ahead} of the traveler before it
+    reaches the next gap. Falling off any edge restarts the level.
+
+    \item \textbf{Light-Guided Branching.} Each active light source pulls new growth toward it.
+    Placing a lantern above a gap causes a branch to arc upward and across; moving the lantern
+    left or right steers the arc. Blocking or extinguishing a light causes growth in that direction
+    to stall and a different lit path to take over. Orchestrating multiple light sources at once
+    shapes complex branching structures.
+
+    \item \textbf{Fork and Redirect.} When two light sources compete, the plant forks---sending
+    one branch toward each. Players exploit this to build multi-branch structures: one fork as a
+    floor, another as a ramp, a third anchoring the span to a ledge. The puzzle is figuring out
+    which light arrangement produces the fork geometry needed to span the level's obstacles.
+
+    \item \textbf{Wither and Regrow.} Players can extinguish a light to stop and wither a branch
+    that grew in the wrong direction, then relight it from a new angle to try again. This makes
+    experimentation low-stakes and encourages iterative refinement of the plant's shape before
+    the traveler arrives.
+
+\end{itemize}
+
+\section*{Player Challenge / Motivation}
+
+The player thinks like a gardener and a puzzle solver: read the obstacle ahead, decide which light
+arrangement will coax the plant into the right shape, and execute it before the traveler reaches
+the gap. There is no direct building---every action is indirect, mediated through light. The reward
+is watching a living bridge grow organically into exactly the shape the puzzle required.
+
+\section*{Design Goals}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Indirect Control.} The player never touches the plant directly; all influence
+    is through light placement. This creates a satisfying layer of indirection that makes
+    solutions feel discovered rather than drawn.
+    \item \textbf{Readable.} The direction of growth is always visually predictable---branches
+    lean toward lit areas---so the player can plan ahead confidently without guessing.
+    \item \textbf{Escalating.} Early levels use a single moveable lantern; later levels introduce
+    fixed lights, lights on timers, and obstacles that block light mid-level, requiring the player
+    to sequence light changes carefully.
+\end{itemize}
+
+\section*{Target Customer}
+
+Fans of indirect-control and creative puzzle games who enjoy guiding systems rather than
+micromanaging them directly. Players who appreciate a calm, iterative puzzle experience with a
+clear visual language. Ages 12 and up; pick-up sessions of 5--15 minutes per level.
+
+\section*{Unique Selling Points}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item The player steers a living plant entirely through light manipulation---no direct drawing
+    or placement, just repositioning lanterns and watching nature respond.
+    \item Forking branches emerge naturally from competing light sources, making multi-path
+    structures an organic consequence of the core mechanic rather than a separate tool.
+    \item A passively moving NPC traveler creates time pressure and emotional stakes without any
+    combat or enemy AI.
+\end{itemize}
+
+\section*{Competition}
+
+Indirect-control games such as \textit{Lemmings} guide a passive character through environmental
+manipulation but do not use organic growth. Plant-growth games such as \textit{Flower} lack puzzle
+structure and a dependent NPC. \textit{Sprout} is unique in using light placement as the sole
+steering mechanism for a growing, branching structure that must reach a goal before a moving
+character falls.
+
+\section*{Target Hardware}
+
+PC (Windows), implemented in Unreal Engine 5. Mouse-and-keyboard or gamepad supported.
+
+\end{document}

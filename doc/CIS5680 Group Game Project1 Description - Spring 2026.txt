@@ -1,0 +1,113 @@
+CIS5680: Game Design Practicum (Spring 2026) 
+
+ 
+
+Group Game Project 1 
+
+ 
+
+In this assignment, you will work in a team of three to develop a prototype of an original game 
+concept based on one of the attached themes. 
+
+ 
+
+Game Project 1 Schedule 
+
+Here’s the schedule of Major Milestones for Game Project1: 
+
+1. Thurs., Feb. 26: Three (3) High Concepts 
+2. Mon., Mar. 2: Game Design Doc (use Design Doc outline provided) 
+3. Wed., Mar. 18: Alpha Version/Playtest 
+4. Wed., Mar. 25: Beta Version/Playtest 
+5. Mon., Mar. 30: Final Version/Demo 
+6. Wed., April 1: Game Trailer and Gameplay videos due 
+
+
+ 
+
+Game Project Requirements 
+
+ 
+
+The requirements for the game project are as follows: 
+
+1. Create three (3) High Concepts for your game. Your game concepts must include some 
+type of novel game play mechanic incorporating physics: 
+a. Do not make the game mechanic overly complex; simpler is always better, and 
+b. Do not choose a story-driven game concept as the amount of art and animation 
+required is prohibitive. 
+
+
+2. In order to accomplish this, you will need to do the following: 
+a. Between now and Thursday (2/26) get together with your team members for 60 
+minutes and generate at least 60 ideas in a group brain storming session based on 
+the Game Themes attached. Each person should take a turn as a leader, writing 
+down as many ideas as you can on a whiteboard. 
+b. Using the GameGPT tool, generate three (3) high concepts from the 5 game 
+design constraint sets you like the best 
+c. Pick the two (2) best ideas from your group brainstorming session and create the 
+corresponding game design constraint sets in the GameGPT tool. Next, generate 
+two high concepts using the GameGPT tool based on your two best brainstorming 
+ideas. 
+d. After you are done generating your high concepts, go to the submission tab of the 
+GameGPT tool to generate and show the corresponding files. Copy the concept 
+art generated into the corresponding concept art folder, zip the submission folder 
+and upload the corresponding zip file to the High Concept assignment folder on 
+Canvas. 
+
+
+
+
+
+3. Summarize the three (3) best high concepts using the High Concept template provided in 
+the High Concept Assignment folder on Canvas. Submit these three High Concept 
+Summary docs along with the full high concept description generated from the GameGPT 
+tool to the High Concept assignment folder on the CIS5680 course canvas site. Also 
+email me a copy of your High Concept Summary docs. After I review your high 
+concepts, one of the three will be selected for further development. Please send your 3 
+High Concept Summary docs to me via email as soon as you can, but no later than 
+midnight on Thursday, Feb. 26th. 
+4. Other requirements 
+a. The game must be implemented using Unreal as the game engine 
+b. Game development must be based on a Game Design Document describing both 
+the technical and creative aspects of the full game. Must include a detailed Work 
+Plan (each task and subtask should be described in detail and list the people 
+performing the work) and a development schedule (i.e. Gantt chart) showing the 
+duration of the Work Plan tasks and the dates of the major and minor milestones 
+c. Project must include a demonstration of a fully functional prototype (typically one 
+level of the game) based on the Work Plan and Schedule contained in the Design 
+Doc. 
+d. Final deliverable of the game prototype must include: an executable version of the 
+game, the Unreal project files and two videos, one demonstrating the gameplay 
+and the other a promotional trailer. 
+
+
+
+
+ 
+
+ 
+
+ 
+
+Game Themes 
+
+ Tiny vs Huge 
+ It’s Not a Bug it’s a Feature 
+ Forking 
+ Optical Illusion 
+ Lights and Shadows 
+ You are a cat 
+ Too much is never enough 
+ Fractal 
+ Burning 
+ Recursion 
+ Inertia 
+ Queues 
+ Twisted 
+ Roadkill 
+
+
+ 
+
+

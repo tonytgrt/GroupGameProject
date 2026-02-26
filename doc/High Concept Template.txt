@@ -1,0 +1,56 @@
+The High Concept Document
+Adapted from original Ernest Adams doc by Stephen Lane
+A high concept document is primarily a sales tool, although you can write one for yourself as well, just as a way of keeping a record of ideas you¡¯ve had. Think of it as a r¨¦sum¨¦ for a video game. The point of a r¨¦sum¨¦ is to quickly convey a job applicant¡¯s qualifications and try to get him an interview with the hiring manager. The point of a high concept document is to try to get a meeting with a producer, the chance to ¡°pitch¡± the game. It should communicate rapidly and clearly the idea of the game¡ªto whet his/her appetite and make the producer want to hear more about it. It doesn¡¯t matter that you haven¡¯t thought through all the details. You¡¯ll almost certainly end up changing several of the features during development anyway. The real point is to convey how much fun the game is going to be.
+In general a high concept document should be no more than two pages long and should take no more than 10 minutes to read. The longer it is, the less likely it is that the producer will finish reading it. It shouldn¡¯t have a title page; the title and your name appear at the top of the first page, and the text begins immediately. Its most important material must appear on the first page.
+In the sections that follow, we describe the key elements of a high concept document.
+* High Concept.  After the title and your name, the document should begin with no more than two lines that state the idea of the game. In a commercial environment, it is imperative that the idea be instantly comprehensible because everyone¡¯s most precious commodity is time. If the producer doesn¡¯t get the idea in a sentence or two, he¡¯s going to worry that the publisher¡¯s sales staff, the wholesale buyers, and, most important, the retail customers won¡¯t get it either.  Of course, there are exceptions to this, and those exceptions are often some of the greatest and most innovative games. In Pac-Man, for example, the player is a circle that eats dots and fruit and is chased by ghosts in a maze¡ªnot exactly an obvious idea. However, Pac-Man is an arcade game, which means that people can actually watch it playing by itself before they commit their money. If you¡¯re going to propose something really strange for a retail game, you need to be very good at explaining it!
+* Genre. Indicate the genre of the game, or if it is a mix of genres, indicate that.
+* Main Features.  Next you should include a bulleted list of the key features of the game. Each item should consist of two or three sentences, no more. Remember that since you are not including concept drawings, your reader doesn¡¯t have a mental picture of the game, so this section needs to build one for him. It¡¯s much more important at this point to convey the game¡¯s look and feel than to give the details about how it works. You¡¯re not selling the game¡¯s internal economy or its AI; you¡¯re selling the player¡¯s experience. Avoid letting the feature list run on to the next page, if you can. More than about 10 bullet points in a row starts to look like a mass of text to read and discourages the eye. You might want to put the items that you think are the most fun, the most innovative, or the most important in bold type, just as you would in a r¨¦sum¨¦.
+Next you need to summarize the key commercial considerations about the game: what machine it¡¯s for, who would buy it and why, and what you¡¯re hoping that the game will achieve. Consider including any or all the following items:
+* Player Challenge/Motivation. This is a short statement that indicates what the player is trying to accomplish in the game¡ªhis role and goal. This helps indicate what sort of person the player is. He can be driven by a desire to compete, to solve puzzles, to explore, or whatever.
+* Design goals. In this section, list your aims for the game as an experience. Don¡¯t just say ¡°fun¡±¡ªthat¡¯s too broad. Be more specific. Are you trying to provide pulse-pounding excitement? Tension and suspense? Strategic challenge? Humor? A heartwarming story? The ability to construct or create something of the player¡¯s own? For each item, indicate in a sentence or two how the game will achieve the goal.
+* Target customer. What kind of person will buy this game? If age or sex is relevant, indicate that; more important, tell what other kinds of games they like to play.
+* Unique selling points. What¡¯s new in this game? How will it stand out from what has gone before?
+* Competition. Are there already games on the market like this one? If so, list their names and indicate how this one is different or better than they are. This section isn¡¯t absolutely necessary, but it can reassure your reader that your game isn¡¯t just a copy of something else.
+* Target hardware. Tell what machine the game is intended for. Also indicate whether the game requires or can make optional use of any special hardware or accessories.
+* License. If you intend for the game to exploit a licensed property, say so here. Also include any facts and figures about the property¡¯s popularity, recognition value, and appeal to particular markets¡ªbut no more than a sentence or two.
+Further Details (Optional)
+In the last section, you can include additional material that you think the reader will enjoy learning about the game. You might include notes about the characters, the artwork, the music, the plot, or anything else that might pique his interest. Don¡¯t add so much that it makes the document too long, however.
+A Sample High Concept Document
+The following is an old high concept document for a simple console or arcade game. It was written before the currently popular ¡°extreme¡± sports games existed, so although this game was never made, some of its ideas did find their way into other games.
+
+Street Football¡ª2 on 2!
+Ernest W. Adams
+High Concept
+The game at its grittiest. No pads, no helmets, no refs, no field. It¡¯s just you and the guys, a ball, and a lot of asphalt. Choose up sides and go for it, two on two.
+Features
+* The point of view is derived from fighting games, with large, detailed players.
+* You choose teams just like in real sandlot football, taking turns picking players from the neighborhood crowd. Each person has a different look, attributes, and set of skills. Not all the kids are available all the time.
+* The ¡°field¡± is an urban alley about 50 yards long. Sidewalks are out of bounds. Garbage cans, potholes, and junked cars create additional obstacles. Tin cans mark the yard lines.
+* As in a fighting game, it¡¯s the personal interactions that count. Dodging, ducking, faking, jumping, diving, and tackling are all essential parts of the game. Certain players have special moves or abilities.
+* Five pass plays, five running plays, and the field goal make up the whole playbook. Field goals and extra points are kicked through two guys holding their arms out and up like goalposts.
+* Health meters show the players¡¯ level of injury and fatigue. If you lose a player, you can pick another one, but you forfeit two touchdowns.
+* Rules are adapted for street football: You have four downs to get into your opponent¡¯s territory, and four more downs to score. Otherwise, you turn over the ball¡ªno punting. No penalties except offsides, but expect a fistfight if it gets too rough.
+* Lots of comedy touches: ball breaks a window¡ªplayer flies into garbage can¡ªplayer slips and skids on oil slick¡ªvan drives down alley and flattens football¡ªlittle kid rides tricycle across the field¡ªrival gangs appear and tag buildings, and then disappear¡ªnerdy bystander gets called home to supper.
+Genre
+Sports arcade action with strong fighting-game overtones.
+Player Challenge/Motivation
+Players pick teams and try to win a 20-minute game of street football. In tournament mode, two-player teams made up of all available players compete for the championship.
+Design Goals
+Simple: Very simple play-calling combined with fighting-game controls makes this an easy game to learn and play.
+Hot: Fast, arcade-style action. No timeouts, no players running on and off the field, no stats or halftime summaries: just raw football.
+Deep: Because teams are made up of pairs of different individuals, lots of possible teams are available. It takes a while to find the best pairings, not to mention playing your way to the top of the championship tree.
+Target Customer
+Sports arcade players looking for something new.
+Unique Selling Points
+* Fighting moves in a sports game
+* Fighter-type personalities in a sports game
+* Comedy in a sports game
+* Team selection process
+Competition
+None
+Target Hardware
+Sega Genesis or Super Nintendo
+
+1
+

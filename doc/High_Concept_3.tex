@@ -1,0 +1,113 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\titleformat{\section}{\normalfont\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Micromancer's Realm}}\\[2pt]
+    {\small CIS 5680 Group Game Project 1 --- Spring 2026}
+\end{center}
+
+\vspace{-4pt}
+
+\section*{High Concept}
+
+A botched alchemist's experiment shrinks you to the size of a thumbtack inside a craft shop---where
+scissors are skyscrapers, spools of thread are canyon walls, and a spreading growth salve is about
+to blow the whole place up. Switch between three tiny specialists and escape before the explosion.
+
+\section*{Genre}
+
+2D platformer / adventure with emergent environmental puzzles.
+
+\section*{Main Features}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=3pt]
+
+    \item \textbf{Tiny vs.\ Huge Scale.} Every everyday object in the craft shop is now a massive
+    environmental feature. A toppled ruler becomes a bridge hundreds of meters long; a rolling
+    pencil is an oncoming boulder; a puddle of paint is an impassable lake. The core sensation is
+    the physical awe of being utterly dwarfed by the mundane---and finding clever ways through it.
+
+    \item \textbf{Three Specialist Characters.} Players switch freely between three tiny heroes,
+    each built for a different kind of obstacle. The \textbf{Acrobat} double-jumps and wall-kicks
+    across yawning gaps, running along suspended thread. The \textbf{Digger} tunnels through soft
+    obstacles---crumbling paper mache, glitter dunes---and shoves heavy items to clear paths. The
+    \textbf{Engineer} builds temporary bridges from tape scraps and strings paperclip ziplines
+    between anchor points. No single character can reach the exit alone.
+
+    \item \textbf{Emergent Environment.} The growth salve continues to spread each level, randomly
+    enlarging new objects as it goes. An avalanche of buttons may form a convenient ramp---until a
+    cascading bolt of fabric knocks it flat. Players must read the shifting environment and adapt
+    their character-switching strategy on the fly rather than execute a memorized solution.
+
+    \item \textbf{Escalating Urgency.} A visible salve-spread timer counts down toward a volatile
+    explosion. Early in each level the environment is relatively stable; as the timer ticks down,
+    new growth events accelerate, paths close off, and the margin for error shrinks. Players who
+    explore and solve efficiently are rewarded; dawdling is punished.
+
+    \item \textbf{Physical Sensation Aesthetic.} The game leans into the tactile feel of miniature
+    traversal: the bounce of landing on a stretched canvas, the slick slide across a wax crayon
+    surface, the vibration of a giant spool spinning underfoot. Sound and screen-shake underscore
+    scale at every moment.
+
+\end{itemize}
+
+\section*{Player Challenge / Motivation}
+
+Players must read a dynamic, ever-changing oversized environment, decide which specialist to use for
+each obstacle, and chain their abilities together to carve a path to the exit---all against an
+expanding salve that constantly reshapes the level around them. The challenge is resourceful
+improvisation under mounting pressure, not rote puzzle memorization.
+
+\section*{Design Goals}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{Physical Immersion.} Every interaction should sell the sensation of being tiny
+    in a giant world---oversized objects have weight, inertia, and presence that the player
+    must respect and exploit.
+    \item \textbf{Emergent Strategy.} Because the salve randomizes which objects grow each run,
+    players develop flexible routing instincts rather than memorizing a fixed solution.
+    \item \textbf{Cooperative Potential.} The three-character system naturally supports both solo
+    play (switching) and local co-op (one character each), broadening the audience without
+    requiring a separate design.
+\end{itemize}
+
+\section*{Target Customer}
+
+Fans of platformers and adventure games who enjoy improvisation, character switching, and
+environmental spectacle. Players who liked the ``tiny explorer in a big world'' fantasy of games
+such as \textit{Pikmin} or \textit{A Bug's Life}. Ages 10 and up; accessible solo, more chaotic
+and social in co-op.
+
+\section*{Unique Selling Points}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item A craft shop full of ordinary objects reimagined as dramatic physical terrain, providing
+    an instantly recognizable yet completely fresh setting.
+    \item Three complementary specialist characters whose abilities must be combined to navigate
+    any given obstacle, making character switching the primary puzzle mechanic.
+    \item A live environmental randomizer (the spreading salve) that ensures no two playthroughs
+    produce identical level layouts, adding replayability without extra content.
+\end{itemize}
+
+\section*{Competition}
+
+\textit{Pikmin} shares the ``tiny character in an oversized world'' premise but is a real-time
+strategy game. \textit{It Takes Two} uses character-ability pairing but is not scale-based.
+\textit{Micromancer's Realm} is unique in combining the scale-fantasy setting with a live emergent
+environment, a countdown threat, and multi-specialist switching in a single 2D platformer loop.
+
+\section*{Target Hardware}
+
+PC (Windows), implemented in Unreal Engine 5. Mouse-and-keyboard or gamepad supported; local
+co-op via split gamepad.
+
+\end{document}
