@@ -715,26 +715,205 @@ approximately five weeks of part-time development.
 \section{Work Plan}
 
     \subsection{Tasks}
-    % TODO: Provide a numbered task/subtask breakdown with assigned team members
-    %       and estimated durations. Example structure:
-    %
-    %  1.  Shadow/Light System
-    %      1.1 Real-time dynamic shadow rendering (UE5)
-    %      1.2 Shadow geometry as physical collision volumes
-    %  2.  Level Design
-    %      2.1 Puzzle layout design (3 levels for alpha)
-    %      2.2 Object placement editor
-    %  3.  Player Interaction
-    %      3.1 Light source drag (mouse interaction, boundary constraints)
-    %      3.2 Blocking object slide (trajectory/snap logic)
-    %  4.  UI & HUD
-    %      4.1 Level select screen
-    %      4.2 Move counter / timer
-    %  5.  Art & Audio
-    %      5.1 Tile art (lit / shadow)
-    %      5.2 Object models
-    %      5.3 Sound effects & music
-    %  6.  Testing & Polish
+
+    Team members: \textbf{CC} = Cecilia Chen, \textbf{JP} = Jacky Park,
+    \textbf{YT} = Yiding Tian.
+
+    \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=2em, itemsep=6pt]
+
+        \item \textbf{Project Setup and Architecture} \hfill \textit{All ---
+              Week 1}
+
+        \begin{enumerate}[label=\textbf{1.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Initialize UE5 project; configure Git repository with
+                  Unreal \texttt{.gitignore}, branch strategy, and shared
+                  asset folders. \hfill \textit{All}
+            \item Define core data structures in Blueprint/C++: level
+                  configuration asset (light-source descriptors, blocking-object
+                  descriptors, boundary volumes, stop positions). \hfill
+                  \textit{CC, JP}
+        \end{enumerate}
+
+        \item \textbf{Shadow and Light System} \hfill \textit{CC, JP ---
+              Weeks 1--2}
+
+        \begin{enumerate}[label=\textbf{2.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Configure UE5 Lumen for fully dynamic, real-time shadow
+                  rendering. Disable all baked lighting; verify that moving
+                  a light source updates shadows within one frame. \hfill
+                  \textit{CC}
+            \item Implement shadow-to-collision mapping: each frame, sample
+                  the rendered shadow coverage and update a set of runtime
+                  collision volumes so traversable regions exactly match the
+                  visible shadow pattern. \hfill \textit{CC, JP}
+            \item Implement boundary constraint system for lanterns: a
+                  bounding volume defined per lantern in the level asset
+                  clamps the lantern's world position during drag. \hfill
+                  \textit{JP}
+            \item Implement angular constraint system for spotlights: compute
+                  spotlight angle from cursor position relative to the mount
+                  point; clamp to the designer-specified angular range. \hfill
+                  \textit{JP}
+        \end{enumerate}
+
+        \item \textbf{Player Interaction} \hfill \textit{JP ---
+              Weeks 2--3}
+
+        \begin{enumerate}[label=\textbf{3.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Lantern drag: project mouse cursor to world space on the
+                  level plane; translate lantern position each tick during
+                  left-mouse-button hold; apply boundary clamp from task 2.3.
+                  \hfill \textit{JP}
+            \item Spotlight rotation: each tick during left-mouse-button hold,
+                  compute the signed angle between the mount point and the
+                  cursor world-space position; apply angular clamp from task
+                  2.4. \hfill \textit{JP}
+            \item Pressure-plate trigger: detect Orb overlap with each
+                  pressure-plate actor; on overlap begin, fire a delegate to
+                  the associated blocking object to begin its slide. \hfill
+                  \textit{JP}
+            \item Blocking-object trajectory and snap: each blocking object
+                  stores an ordered list of stop positions along a linear
+                  or spline path; on trigger, animate the object to the next
+                  stop at a fixed speed and broadcast a ``stop reached''
+                  event when snapped. \hfill \textit{JP, CC}
+            \item Object hover highlight: on mouse-cursor overlap with an
+                  interactable actor, apply a highlight material parameter;
+                  remove on exit. \hfill \textit{JP}
+        \end{enumerate}
+
+        \item \textbf{Orb Character} \hfill \textit{CC ---
+              Week 2}
+
+        \begin{enumerate}[label=\textbf{4.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Set up Orb as a UE5 sphere physics actor: configure mass,
+                  rolling friction, and gravity scale so the Orb rolls
+                  smoothly and stops quickly when input is released. \hfill
+                  \textit{CC}
+            \item Implement WASD input: map keyboard axis input to impulse
+                  forces applied to the Orb's physics body in the camera's
+                  forward/right directions each tick. \hfill \textit{CC}
+            \item Implement fall detection and respawn: if the Orb enters
+                  a lit (non-shadow-covered) void region, play fall animation
+                  and audio, then teleport the Orb back to the level's start
+                  position; leave all objects in their current state. \hfill
+                  \textit{CC}
+        \end{enumerate}
+
+        \item \textbf{Level Design} \hfill \textit{YT, All ---
+              Weeks 2--4}
+
+        \begin{enumerate}[label=\textbf{5.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Design and build \textit{Tutorial --- The Antechamber}:
+                  single lantern, single pillar, two gaps; configure
+                  boundary volumes, pressure plate, and two stop positions.
+                  Add on-screen tutorial prompts (task 6.4). \hfill
+                  \textit{YT}
+            \item Design and build \textit{Level 1 --- The Collapsed
+                  Bridge}: one lantern, two pillars; configure overlapping
+                  shadow solution. Validate puzzle has a unique intended
+                  solution. \hfill \textit{YT}
+            \item Design and build \textit{Level 2 --- The Torch Hall}:
+                  two spotlights, two blocking objects; configure branching
+                  layout and directional shadow solution. \hfill \textit{YT}
+            \item Design and build \textit{Level 3 --- The Inner Sanctum}:
+                  one lantern, two spotlights, three blocking objects;
+                  configure all mechanics in concert; tune interdependence
+                  and difficulty. \hfill \textit{YT, All}
+            \item Per-level configuration pass: set boundary volumes,
+                  angular ranges, trajectory paths, and stop positions for
+                  all interactable objects across all four levels using
+                  the level asset defined in task 1.2. \hfill \textit{YT}
+        \end{enumerate}
+
+        \item \textbf{UI and HUD} \hfill \textit{YT ---
+              Weeks 3--4}
+
+        \begin{enumerate}[label=\textbf{6.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Implement Main Menu: title screen with Play and Quit
+                  buttons; transitions to level-select on Play. \hfill
+                  \textit{YT}
+            \item Implement level-select screen: four entries (Tutorial,
+                  Level 1--3); locked levels displayed greyed out;
+                  selecting an unlocked entry loads the corresponding
+                  level. \hfill \textit{YT}
+            \item Implement in-game HUD: level name in corner; Reset button
+                  that fires a ``reset level'' event returning all objects
+                  and the Orb to start positions. \hfill \textit{YT}
+            \item Implement level-complete and Victory screens: brief
+                  animation overlay on level completion; Victory screen
+                  with return-to-menu button after Level 3. \hfill
+                  \textit{YT}
+            \item Implement tutorial on-screen prompts: UMG text widgets
+                  anchored near relevant objects; each prompt hides itself
+                  when its trigger condition is satisfied. \hfill \textit{YT}
+        \end{enumerate}
+
+        \item \textbf{Art and Assets} \hfill \textit{YT, CC ---
+              Weeks 3--4}
+
+        \begin{enumerate}[label=\textbf{7.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Model and texture the Orb: smooth stone sphere with subtle
+                  surface detail; import as UE5 static mesh. \hfill
+                  \textit{CC}
+            \item Model environment geometry: floating island platform base,
+                  stone tile floor, Roman archways, ruined wall segments.
+                  \hfill \textit{YT}
+            \item Model and texture light source actors: hanging lantern
+                  mesh, wall-mounted spotlight fixture. \hfill \textit{YT}
+            \item Model and texture blocking objects: stone pillar,
+                  wooden crate. \hfill \textit{YT}
+            \item Add particle effects: flame/glow emitter on lanterns;
+                  light-cone dust motes on spotlights. \hfill \textit{CC}
+            \item Create atmospheric void backdrop: dark skybox or
+                  procedural fog material conveying infinite depth below
+                  the floating islands. \hfill \textit{YT}
+        \end{enumerate}
+
+        \item \textbf{Audio} \hfill \textit{YT ---
+              Week 4}
+
+        \begin{enumerate}[label=\textbf{8.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Source or compose ambient background music: calm, sparse
+                  atmospheric loop; import and configure as UE5 sound cue.
+                  \hfill \textit{YT}
+            \item Create and assign sound effects: lantern drag start/end,
+                  spotlight rotation, blocker slide, Orb fall, level
+                  complete. Trigger via Blueprint event dispatchers from
+                  the relevant actors. \hfill \textit{YT}
+        \end{enumerate}
+
+        \item \textbf{Testing and Polish} \hfill \textit{All ---
+              Weeks 3--5}
+
+        \begin{enumerate}[label=\textbf{9.\arabic*.},
+                          leftmargin=2em, itemsep=2pt]
+            \item Alpha playtest (Mar.\ 18): collect feedback on core shadow
+                  mechanic feel, collision accuracy, and Level 1 puzzle
+                  difficulty; log and prioritise bugs. \hfill \textit{All}
+            \item Post-Alpha bug fix sprint: resolve collision-volume
+                  mismatches, input edge cases, and puzzle-balance issues
+                  identified in Alpha playtest. \hfill \textit{CC, JP}
+            \item Beta playtest (Mar.\ 25): full end-to-end run through all
+                  four levels; evaluate spotlight mechanic, tutorial clarity,
+                  and Level 3 difficulty; log bugs. \hfill \textit{All}
+            \item Post-Beta polish sprint: final art pass, audio mixing,
+                  UI refinement, and remaining bug fixes. \hfill \textit{All}
+            \item Final build, gameplay video, and trailer (Mar.\ 30 /
+                  Apr.\ 1): package executable; record gameplay walkthrough
+                  video; record and edit promotional trailer. \hfill
+                  \textit{All}
+        \end{enumerate}
+
+    \end{enumerate}
 
     \subsection{Milestones}
 
