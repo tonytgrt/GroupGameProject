@@ -509,15 +509,15 @@ approximately five weeks of part-time development.
             \draw[arr, bend left=15] (spot) to
                 node[lbl, below]{release}         (idle);
 
-            \draw[arr, bend right=20] (idle)    to
-                node[lbl, right]{WASD}    (orbmove);
-            \draw[arr, bend right=20] (orbmove) to
-                node[lbl, left] {release} (idle);
+            \draw[arr, bend right=35] (idle)    to
+                node[lbl, left]{WASD}     (orbmove);
+            \draw[arr, bend right=35] (orbmove) to
+                node[lbl, right]{release} (idle);
 
-            \draw[arr, bend left=15] (orbmove) to
-                node[lbl, above left]{pressure\\plate} (blocker);
-            \draw[arr, bend left=15] (blocker) to
-                node[lbl, below right]{stop\\reached}  (orbmove);
+            \draw[arr, bend left=25] (orbmove) to
+                node[lbl, above left, pos=0.3]{pressure\\plate} (blocker);
+            \draw[arr, bend left=25] (blocker) to
+                node[lbl, below right, pos=0.3]{stop\\reached}  (orbmove);
 
             \draw[arr] (orbmove) to
                 node[lbl, right]{lit gap}    (falling);
