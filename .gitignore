@@ -5,6 +5,12 @@ Intermediate/
 Saved/
 DerivedDataCache/
 
+*.aux
+*.log
+*.out
+*.gz
+*.toc
+
 Content/FirstGameInUE5_Source.zip
 Content/StackOBot/Environment/Rocks/SM_RockFlats_01.uasset
 

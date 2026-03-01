@@ -1,0 +1,337 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{pgfgantt}
+\usepackage[hidelinks]{hyperref}
+
+% Section formatting
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{1em}{}
+\titlespacing{\section}{0pt}{12pt}{6pt}
+\titlespacing{\subsection}{0pt}{8pt}{4pt}
+\titlespacing{\subsubsection}{0pt}{6pt}{2pt}
+
+\begin{document}
+
+% ─── Title Page ──────────────────────────────────────────────────────────────
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\large University of Pennsylvania}\\[0.5em]
+    {\large CIS 5680: Game Design Practicum}\\[3cm]
+    {\LARGE \textbf{Game Design Document}}\\[1em]
+    {\Huge \textbf{Umbra}}\\[0.5em]
+    {\large A Light and Shadow Puzzle Game}\\[3cm]
+    {\normalsize Group Members: [Name 1], [Name 2], [Name 3]}\\[1em]
+    {\normalsize Instructor: Dr.\ Stephen Lane}\\[1em]
+    {\normalsize Spring 2026}
+    \vfill
+\end{titlepage}
+
+% ─── Table of Contents ───────────────────────────────────────────────────────
+\tableofcontents
+\newpage
+
+% ─── 1. Executive Summary ────────────────────────────────────────────────────
+\section{Executive Summary}
+
+\textbf{Umbra} is a top-down 2D spatial puzzle game built in Unreal Engine~5 for PC
+(Windows). Shadows are rendered continuously and update in real time as objects in the
+scene move: every light source and blocking object casts live shadow geometry that
+physically affects the scene. Players manipulate portable lanterns and pivotable
+spotlights---dragging and rotating them freely with the mouse within designer-specified
+boundaries---to reshape the shadow pattern across the environment, and toggle between
+morning and evening sun angles to flip the direction of every directional shadow
+simultaneously. Blocking objects (crates, pillars) slide along fixed trajectories to
+designer-specified stop positions when the player interacts with them. Shadow regions are
+physically solid---a gap becomes crossable only when a shadow-bridge is cast across it,
+and displacing that bridge destroys the path. Each level is a self-contained puzzle with
+a correct configuration of light sources and blocking objects that opens a walkable path
+from start to exit.
+
+Umbra targets fans of clean, mechanic-first puzzle games such as \textit{The Witness},
+\textit{Portal}, and \textit{Stephen's Sausage Roll}. There is no combat, no time
+pressure, and no randomness---every solution is deterministic and discoverable through
+spatial reasoning alone. Two foundational rules (shadows are physically solid; the sun
+has exactly two states) combine to produce a surprisingly deep puzzle space without
+requiring the player to learn a large system. The game is accessible to players aged
+12~and~up and designed for pick-up-and-play sessions of 5--15 minutes per level.
+
+Development is structured in three phases across a three-person team: an \emph{Alpha}
+prototype delivering one fully playable level with the core shadow mechanic and sun
+toggle (due Wed.~Mar.~18); a \emph{Beta} expanding to multiple puzzle levels with
+polished art, audio, and a hint system (due Wed.~Mar.~25); and a \emph{Final} release
+incorporating a tutorial level, level-select screen, and gameplay/trailer videos (due
+Mon.~Mar.~30 and Wed.~Apr.~1). The full prototype is expected to be completed in
+approximately five weeks of part-time development.
+
+% ─── 2. Game Design ──────────────────────────────────────────────────────────
+\section{Game Design}
+
+    \subsection{High Concept}
+    % TODO: Paste/adapt the approved high concept text from High_Concept_1.tex.
+
+    \subsection{Design Goals}
+
+        \subsubsection{Main Design Features}
+
+            \paragraph{Player Goals and Objectives}
+            The player is an explorer navigating a world where light and shadow are as
+            solid as stone. The goal of each self-contained level is to discover the
+            correct positions and orientations of light sources, the correct positions
+            of blocking objects along their fixed trajectories, and the correct sun state
+            (morning or evening) that together cast a shadow pattern opening a walkable
+            path from start to exit. There is no time pressure and no combat; the sole
+            challenge is spatial reasoning.
+
+            \paragraph{Main Rules and Procedures}
+            \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+                \item Shadows are continuous and computed in real time by Unreal
+                      Engine~5's lighting system. Any region covered by a shadow pattern
+                      is physically solid and traversable; lit regions are open space.
+                      Bridges, platforms, and doorways built from shadow geometry appear
+                      or vanish as the shadow pattern changes.
+                \item \textbf{Light sources} (lanterns, spotlights) are freely moved or
+                      rotated by clicking and dragging with the mouse. Each light source
+                      has a designer-specified boundary that limits how far it can travel
+                      or rotate. Shadow geometry updates continuously as the player drags.
+                \item \textbf{Blocking objects} (crates, pillars) slide along fixed,
+                      pre-defined trajectories and snap to designer-specified stop
+                      positions when the player clicks and drags them. They cannot be
+                      freely placed; each object has exactly the set of positions its
+                      trajectory permits.
+                \item Players may toggle the sun state between morning (sun from the
+                      east) and evening (sun from the west) at any time; this
+                      immediately recomputes every directional shadow cast by blocking
+                      objects and the environment.
+                \item The level is solved when the player's character reaches the exit
+                      through a walkable path that exists in the current shadow
+                      configuration.
+            \end{itemize}
+
+            \paragraph{Player Resources}
+            \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+                \item \textbf{Portable lanterns.} Freely dragged to any position within
+                      their movement boundary by clicking and holding with the mouse.
+                      Cast a circular point-light shadow pattern that updates in real
+                      time as the lantern is repositioned.
+                \item \textbf{Wall-mounted spotlights.} Freely rotated about their fixed
+                      mount point by clicking and dragging. Emit a directed cone of
+                      light; rotating the spotlight continuously reshapes the shadow
+                      it casts behind any blocking object in its beam.
+                \item \textbf{Blocking objects} (crates, pillars). Slid to any of their
+                      trajectory's designated stop positions by clicking and dragging
+                      along their fixed path. Reposition them to add, remove, or redirect
+                      a shadow cast by the sun or a nearby light source.
+                \item \textbf{Sun-angle toggle.} A single key/button input switches
+                      between morning and evening, instantly remapping every directional
+                      shadow in the scene and producing an entirely new traversable
+                      shadow pattern from the same geometry.
+            \end{itemize}
+
+            \paragraph{Conflicts}
+            \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+                \item \textbf{Spatial logic.} The light source positions, blocking object
+                      stop positions, and sun state that solve the puzzle are hidden;
+                      players must deduce the correct configuration through observation
+                      and reasoning rather than trial and error.
+                \item \textbf{Shadow interdependence.} Moving a light source or blocking
+                      object continuously reshapes the entire shadow pattern. A position
+                      that creates one bridge may simultaneously remove another the player
+                      needs. Players must reason about the full shadow layout, not just
+                      local effects.
+                \item \textbf{Trajectory constraints.} Blocking objects travel only along
+                      their fixed paths and stop only at designer-specified positions.
+                      The puzzle solution must be achievable within those constraints;
+                      players cannot place objects arbitrarily.
+            \end{itemize}
+
+        \subsubsection{Appeal}
+        Umbra appeals to fans of pure puzzle games---players who want a single elegant
+        mechanic taken to its logical depth rather than narrative or action content.
+        The two foundational rules combine to produce a surprisingly large puzzle space
+        without requiring the player to learn many systems, making the game approachable
+        to newcomers while offering genuine depth for dedicated puzzle solvers.
+
+        Every level delivers a clean ``aha'' moment when the correct light arrangement
+        snaps into place and the path becomes obvious. Solutions feel \emph{discovered},
+        not stumbled upon---the satisfaction comes from reading the environment and
+        inferring the hidden configuration, not from reaction speed or resource
+        management.
+
+        The game is accessible to players aged 12~and~up and structured for
+        pick-up-and-play sessions of 5--15 minutes per level. It targets fans of
+        \textit{The Witness}, \textit{Portal}, and \textit{Stephen's Sausage Roll}---games
+        that trust the player to discover rules through play and reward logical deduction
+        over reflex. The absence of combat, timers, and randomness makes Umbra equally
+        welcoming to casual puzzle enthusiasts and genre veterans.
+
+        \subsubsection{Look and Feel}
+        Umbra uses a \textbf{minimalist silhouette aesthetic}. The scene is rendered with
+        stark contrast between two dominant states: warm \textbf{amber} wash for areas in
+        direct light and cool \textbf{blue-grey} for areas in shadow. Because shadows are
+        continuous and computed in real time, the boundary between lit and shadowed
+        regions is a smooth, live edge that shifts as the player drags a light source or
+        adjusts a blocking object---making the cause-and-effect relationship between
+        manipulation and shadow shape immediately visible.
+
+        The visual language is deliberately simple so that the puzzle logic---not the
+        art---demands the player's attention. Blocking objects are bold geometric
+        silhouettes (squares, rectangles, cylinders) with no decorative surface detail.
+        Light sources glow with a soft halo to distinguish them from passive objects.
+        Draggable light sources show a subtle highlight ring while the mouse hovers over
+        them; blocking objects show directional arrows along their trajectory to indicate
+        available move directions. The player character is a minimal dark figure,
+        readable against both lit and shadowed backgrounds.
+
+        Ambient audio shifts in warmth with the sun state---brighter, airier tones for
+        morning light; cooler, lower drones for evening shadow. Interaction feedback is
+        delivered through crisp sound cues (light source drag start/end, blocking object
+        slide, sun toggle) and the continuously animating shadow boundary, which gives
+        the player instant visual confirmation of every manipulation.
+
+    \subsection{Worlds, Characters and Story}
+
+        \subsubsection{Back Story}
+        % TODO: Provide any narrative framing or world-building context.
+
+        \subsubsection{Spaces / Worlds}
+        % TODO: Describe the level environments, tile types, light/shadow regions,
+        %       and how they change based on sun state.
+
+        \subsubsection{Characters}
+        % TODO: Describe the player character and any non-player entities.
+
+        \subsubsection{Levels of Difficulty}
+        % TODO: Describe how puzzle complexity scales across levels.
+
+    \subsection{Interaction Models}
+
+        \subsubsection{User Interface --- Navigation and Movement}
+        % TODO: Describe controls (mouse/keyboard, gamepad), camera perspective,
+        %       and how the player moves through the world.
+
+        \subsubsection{Game Play Sequence and Levels}
+        % TODO: Describe the flow from level start to completion, including the
+        %       morning/evening toggle interaction and win/lose conditions.
+
+        \subsubsection{User/Environment --- Obstacles and Props}
+        % TODO: Describe interactable objects (lanterns, spotlights, crates,
+        %       pillars) and environmental hazards.
+
+        \subsubsection{User/Character}
+        % TODO: Describe how the player interacts with the player character
+        %       (picking up objects, toggling sun state, etc.).
+
+        \subsubsection{Character/Character}
+        % TODO: Describe any character-to-character interactions (if applicable).
+
+    \subsection{Performance and Scoring}
+
+        \subsubsection{State Variables}
+        % TODO: List game state variables tracked at runtime (sun state,
+        %       object positions, level completion flag, move count, etc.).
+
+        \subsubsection{Feedback}
+        % TODO: Describe visual/audio feedback given to the player (shadow
+        %       updates, success/failure cues, hints, etc.).
+
+        \subsubsection{Performance and Progress Metrics}
+        % TODO: Describe how player performance is measured and displayed
+        %       (move count, time, star rating, level select, etc.).
+
+% ─── 3. Implementation ───────────────────────────────────────────────────────
+\section{Implementation}
+
+    \subsection{Design Assumptions}
+
+        \subsubsection{Hardware}
+        % TODO: List minimum and recommended hardware requirements (CPU, RAM, GPU).
+
+        \subsubsection{Software}
+        % TODO: List software dependencies: Unreal Engine 5 version, OS (Windows),
+        %       development tools, version control, etc.
+
+        \subsubsection{Algorithms and Techniques}
+        % TODO: Describe key technical approaches: Unreal Engine 5 real-time dynamic
+        %       shadow system, continuous shadow geometry as physical collision, mouse
+        %       drag interaction with boundary constraints for light sources, fixed
+        %       trajectory/snap logic for blocking objects, sun-angle toggle, etc.
+
+    \subsection{Storyboards}
+    % TODO: Insert concept sketches or storyboard panels showing key game states
+    %       (level start, object placement, sun toggle, level completion).
+
+    \subsection{Design Logic}
+
+        \subsubsection{Finite State Machines --- Events / States / Effects}
+        % TODO: Provide FSM diagrams or tables for the game's core states:
+        %       Idle, Object Selected, Sun Toggle, Level Complete, etc.
+
+        \subsubsection{User Solution / Actions}
+        % TODO: Walk through an example puzzle solution step-by-step, mapping
+        %       player actions to state changes.
+
+    \subsection{Software Versions}
+
+        \subsubsection{Alpha Version}
+        % TODO: List features included in the Alpha (vertical slice):
+        %       one playable level, core shadow mechanic, sun toggle, basic UI.
+
+        \subsubsection{Beta Version}
+        % TODO: List additional features for Beta: multiple levels, polished
+        %       art/audio, hint system, level select screen.
+
+        \subsubsection{Tutorials}
+        % TODO: Describe the in-game tutorial or introductory level that teaches
+        %       the shadow mechanic and sun toggle to new players.
+
+% ─── 4. Work Plan ────────────────────────────────────────────────────────────
+\section{Work Plan}
+
+    \subsection{Tasks}
+    % TODO: Provide a numbered task/subtask breakdown with assigned team members
+    %       and estimated durations. Example structure:
+    %
+    %  1.  Shadow/Light System
+    %      1.1 Real-time dynamic shadow rendering (UE5)
+    %      1.2 Shadow geometry as physical collision volumes
+    %      1.3 Sun-toggle logic
+    %  2.  Level Design
+    %      2.1 Puzzle layout design (3 levels for alpha)
+    %      2.2 Object placement editor
+    %  3.  Player Interaction
+    %      3.1 Object pickup/drop
+    %      3.2 Sun toggle input
+    %  4.  UI & HUD
+    %      4.1 Level select screen
+    %      4.2 Move counter / timer
+    %  5.  Art & Audio
+    %      5.1 Tile art (lit / shadow)
+    %      5.2 Object models
+    %      5.3 Sound effects & music
+    %  6.  Testing & Polish
+
+    \subsection{Milestones}
+
+        \subsubsection{Minor Milestones}
+        % TODO: List internal checkpoints with target dates.
+
+        \subsubsection{Major Milestones}
+        % TODO: List the course-defined major milestones:
+        %  - Mon. Mar. 2:  Game Design Doc
+        %  - Wed. Mar. 18: Alpha Version / Playtest
+        %  - Wed. Mar. 25: Beta Version / Playtest
+        %  - Mon. Mar. 30: Final Version / Demo
+        %  - Wed. Apr. 1:  Game Trailer and Gameplay Videos
+
+    \subsection{Development Schedule}
+    % TODO: Insert a Gantt chart mapping Work Plan tasks to calendar weeks.
+    %       The pgfgantt package is loaded above for this purpose.
+
+\end{document}

@@ -1,0 +1,784 @@
+CIS568: Game Design Practicum 
+Spring 2020 
+
+
+Game 
+Design 
+Document 
+
+
+Group Members: Adam Canarick, Effie Li, Susan Xie 
+Game Title: Ice Gems 
+
+
+EXECUTIVESUMMARY 
+
+
+Ice Gems is an action-packed, exploration game that allows anyone to enter the beautiful 
+ice caves of the mystical Himalaya Mountains. You take on the role of a futuristic 
+mountain-climber who’s on a quest to collect all 10 magical gems located in the different ice 
+caves found in the monstrous rock walls of the mountains. However, your ice shoes plummeted 
+down the mountain on your ascent up to the peak, so you must use the propulsion from your 
+jet-pack backpack to glide your way through the super slippery cave floors. 
+
+
+With a limited amount of resources, huge ice pillars and walls barricading your paths, 
+freezing cold ice ponds, as well as a dangerous abominable snowman in the cave, our game asks 
+you to strategically collect mystical gems to fuel your jetpack to journey to the back of the cave 
+where the magical gem of that level is located. 
+
+
+We believe that this game uniquely challenges players’ hand-eye coordination, visual 
+perception, and understanding of physics to successfully capture all of the gems in the 
+mountains. The simple and maze-like level structure allows for quick, fun-fueled gameplay and 
+an ability to increase your skill-ability with each gameplay. 
+
+
+The game is developed purely for PC platforms. We expect end-to-end implementation to 
+take 5 weeks or, assuming 3 part-time designers/developers 14 man-hours. 
+
+
+2 
+GAMEDESIGN 
+-CREATIVE 
+
+
+2.1 
+High Concept 
+Ice 
+Gems, 
+designed 
+by 
+Adam, 
+Effie, 
+and 
+Susan. 
+The 
+player 
+navigates 
+through 
+a 
+cave 
+full 
+of 
+obstacles 
+and 
+collects 
+gems 
+that 
+could 
+move 
+the 
+player 
+forward, 
+melt 
+down 
+the 
+boss, 
+or 
+freeze 
+the 
+time. 
+After 
+navigating 
+through 
+the 
+cave, 
+the 
+player 
+wins 
+by 
+shooting 
+gems 
+at 
+the 
+boss 
+to 
+defeat it. 
+
+
+2.2 
+Design Goals 
+2.2.1 
+Main 
+Design 
+Features 
+
+2.2.1.1 
+Player 
+goals 
+and 
+objectives. 
+Main goal is to get to the end of the cave and retrieve the special gem. 
+Secondary goal is to collect gems as your resources go through the cave. 
+
+
+Type of challenges includes obstacles. Ice poles and ice walls block your way, 
+and ice puddles cost your gems if you accidentally slide into them. In addition, the 
+abominable snowman roars occasionally, which moves you backward unless you hide 
+behind a ice pole or a ice wall. 
+
+
+Types of conflicts include resource management. You can propel yourself 
+forward to reach more gems but in doing so you also use gems your own. 
+Winning condition – you need to defeat the abominable snowman and retrieve the 
+special gem. 
+
+
+2.2.1.2 
+Main 
+rules 
+and 
+procedures 
+Operational rules – You can collect gems on the wall of the cave, and you could slide 
+on the ice using your jet-pack. The more fuel you use to propel yourself, the faster you 
+move and the more gems you use. You can shoot rubies at the abominable snowman to 
+melt it down in order to retrieve the crystal at the end and win the game. 
+
+
+Main game mechanic – The character will look at the direction of the mouse, and the 
+mouse click and hold determines how much fuel the character uses (holding the mouse 
+click for longer indicates more fuel use). The player can throw rubies at the abominable 
+snowman by pressing the E key. The player can collect gems by pressing F. The player 
+can fly up using the spacebar. 
+
+
+Player Resources 
+
+
+Types of resources: Ruby, Diamond 
+
+
+How does the player use resources to achieve goals? 
+Rubies can be used to melt down ice, which is useful in defeating the abominable 
+snowman. Every time a ruby hits the abominable snowman, the abominable snowman 
+decreases in size. Diamonds are used to propel yourself forward. 
+
+
+2.2.1.3 
+Boundaries 
+and 
+Constraints 
+The actions are limited to the empty areas within the cave. The player cannot climb onto 
+ice walls or ice poles. The player can only collect gems within reach, which will light up 
+in the gameplay. The player cannot bypass the abominable snowman before melting it 
+down. 
+
+
+2.2.2 
+Appeal 
+What is the game genre? 
+Collect and shooter 
+Who is the target audience? 
+People who are intrigued by a mission and adventure 
+What is their age? 
+Teenagers 
+
+
+2 
+
+
+
+Why is the game fun to play? 
+It is interesting to play because each level is different and there are many conflicts in the 
+game. In addition, the graphics are aesthetically appealing. 
+
+
+2.2.3 
+Look 
+and 
+Feel 
+3 
+
+
+
+2.3 
+Worlds, Characters and Story 
+2.3.1 
+Back 
+Story 
+You are a mountain-climber who’s on a quest to collect all 10 magical gems located in 
+the different ice caves found in the monstrous rock walls of the mountains. However, 
+your ice shoes plummeted down the mountain on your ascent up to the peak so you must 
+use the propulsion from your jet-pack backpack to glide your way through the super 
+slippery cave floors. 
+
+
+2.3.2 
+Spaces/Worlds 
+2.3.3 
+Characters 
+4 
+
+
+
+The abominable snowman is aggressive. The hiker is adventurous and brave. 
+
+
+2.3.4 
+Levels 
+of 
+Difficulty 
+For higher levels, we have more obstacles in the cave and fewer gems. 
+
+
+2.4 
+Interaction Models 
+2.4.1 
+User 
+Interface 
+-Navigation 
+and 
+Movement 
+The user will control using the mouse and the keypad. Two resource bars are shown at 
+the top of the screen, one tracking diamonds and one tracking rubies. 
+
+
+2.4.2 
+Game 
+Play 
+Sequence 
+and 
+Levels 
+2.4.3 
+User/Environment 
+– 
+Obstacles 
+and 
+Props 
+The mouse determines the direction in which the player would look. The camera angle is 
+fixed and its distance from the character is constant. So we could calculate where the 
+mouse points to in the world space, and that is the look vector of the character. The 
+length of the mouse click determines how much fuel is used. The fuel gives a force along 
+the direction of the character’s look vector. If the character hits an ice pole, he will go off 
+course as the pole gives a force in the collision point’s normal direction. 
+
+
+5 
+
+
+
+The boss fight will be in first person view, and the player could shoot at the abominable 
+snowman along the camera’s look vector. The camera is also controlled by the mouse. 
+
+
+2.4.4 
+User/Character 
+The only other character the player will interact with is the abominable snowman. The 
+player can only shoot at it. 
+
+
+2.4.5 
+Character/Character 
+The abominable snowman will walk back and forth in front of the crystal. It will roar at 
+you occasionally and move you backwards. You can throw a ruby at it to melt it down. 
+
+
+2.4.6 
+Puzzle 
+Design 
+Not featured. 
+
+
+2.4.7 
+Motion 
+Tracking 
+Not featured. 
+
+
+2.4.8 
+Multi-Player 
+Not featured. 
+
+
+2.4.9 
+Mobile 
+Not featured. 
+
+
+2.4.10 
+Networked 
+Play 
+Not featured. 
+
+
+2.5 
+Performance and Scoring 
+2.5.1 
+State 
+Variables 
+What are all the character, environment and gameplay variables necessary to save/restore 
+or pause/resume the game or virtual world experience. 
+
+
+Variables that will be saved: 
+Location of the player 
+Rubies number 
+Diamonds number 
+Size of abominable snowman 
+
+
+2.5.2 
+Feedback 
+Positive Feedback: in the beginning, there will be an abundance of gems. There is also a 
+longer reaction time for the roar from the abominable snowman. 
+Negative Feedback: the closer you get to the end of the cave, the less gems there are. 
+There is a shorter reaction time for the roar. 
+
+
+2.5.3 
+Performance 
+and 
+Progress 
+Metrics 
+6 
+
+
+
+You lose by using up all of your gems before collecting the final crystal. You win by 
+collecting the final crystal. 
+
+
+3 
+GAMEDESIGN 
+-IMPLEMENTATIONDETAILS 
+
+
+3.1 
+Design Assumptions 
+3.1.1 
+Hardware 
+The game will run on Mac OS X and Windows 64-bit computers with quad-core Intel or 
+AMD processors, 2.5 GHz or faster, and 8 GB RAM. System should have NVIDIA 
+GeForce 470 GTX or AMD Radeon 6870 HD series graphics card or higher. 
+
+
+3.1.2 
+Software 
+We will use Unreal Engine 4 to develop the game. It will be available for Windows 10 
+and Mac OS X 10.9.2 or later. 
+
+
+3.1.3 
+Algorithms 
+and 
+Techniques 
+Algorithms: 
+
+
+● 
+Player velocity: Since the game is heavily inertia-based, the current velocity the 
+player is moving is extremely important. Velocity will be tracked as a Vec3 of 
+floats: when the player hits a certain key, the jetpack will apply a positive 
+acceleration in the direction of the player’s forward vector (with upwards 
+component normalized and removed). If the player wishes to fly upward, a 
+different key can be pressed to move the player in the direction of the look vector 
+without the upward component removed. When the player moves forward, the 
+friction of the ice applies a negative force on the player’s velocity (the player 
+slows down as they skate on the ice longer), and when flying upward, gravity is 
+pulling the player back down. Crashing into a wall or pillar in the environment 
+will reverse the direction of the inertia (based on physics momentum). 
+● 
+Gem collection: When a gem is within the reach of the player (the gem position is 
+within a certain radius of the player’s position), the gem will glow, indicating the 
+player can collect it. Clicking “F” will collect the fetch the gem and add it to the 
+player’s inventory (seen in fuel bar and ruby bar). 
+● 
+Fuel bar update: Throughout the game, you collect gems to power your jetpack. 
+Whenever you use the jetpack, the fuel bar decreases, and whenever you collect 
+gems, the fuel bar increases. We will track the fuel level using a float variable, 
+increasing and decreasing accordingly with key presses and gem acquisitions. If 
+the fuel level hits 0 and the player’s velocity also hits 0 (or almost 0), the player 
+loses. 
+● 
+Special gem collection bar: In the game, there are special ruby gems that are 
+needed to defeat the boss at the end of the game. There is a status collection bar 
+for this as well showing the percentage of rubies you’ve acquired so far out of all 
+the rubies available in the level. This is calculated as a float based on an integer 
+7 
+
+
+
+variable representing the number of rubies currently collected and the total 
+number of rubies available. 
+
+
+● 
+Monster roars: There is a roar that echoes through the cave at set intervals which 
+applies a force to the player in the opposite direction of the goal. This roar echoes 
+through the cave and increases in volume as the “echo” gets closer to the player— 
+this gives the player time to prepare for gust of wind from the roar as it 
+approaches. Depending on the player’s current position in the cave, we will have 
+a series of different audio recordings (of louder and louder roars) to play as the 
+player gets closer to the source of the roars, and decreasing time intervals set for 
+the player to react to the roar. 
+● 
+Player obstacles: If a player hides behind an ice pillar (this can be determined by 
+if the player’s position is within a certain range of an ice pillar’s), the ice pillar 
+blocks the force of the monster’s roar from the player and the player does not get 
+pushed backwards. The cave also has cracks / puddles in the ice, and if the player 
+falls into one of these, they will lose 70% of their gems. 
+● 
+Door busting: If the player hits a door with a large enough velocity, the door will 
+shatter. Otherwise, the player will react as if just hitting a regular obstacle 
+(cavewall, ice pillar). 
+● 
+Boss battle: To enter the boss battle, the player clicks on the boss in the final 
+cavern, and the third person camera mode switches into first person. The boss 
+battle comprises of a few algorithms. 
+○ 
+Follow algorithm: The “boss” in the final room will follow the player, 
+blocking them from the final goal. The boss’ position will update based on 
+the position of the player. 
+○ 
+Throwing rubies: The player can hit a key to throw rubies at the ice 
+monster. This will apply a force in the direction of the player’s look vector 
+to a ruby. 
+○ 
+Shrinking: If a ruby hits the boss, he begins to “melt” and decreases in 
+scale by a certain amount. To do this, we will have a model for the 
+monster and simply decrease the model in size every time a ruby hits, or 
+replace this model with a smaller “melting” version of the current model. 
+Plug-Ins 
+
+
+● 
+Unreal has a built-in following algorithm that we will use for the boss 
+● 
+A following algorithm will also be used for following the player through the cave. 
+Animations 
+
+
+● 
+Whenever the player smashes through a doorway, there will be a shatter 
+animation applied. 
+3.2 
+Storyboards 
+8 
+
+
+
+3.3 
+Design Logic 
+3.3.1 
+Finite 
+State 
+Machines 
+– 
+Events/States/Effects 
+9 
+
+
+
+The player starts the game by choosing a level. Once the level is selected, the player 
+enters playing mode. The player can pause at any point and resume, quit, or restart. At 
+any point, if the player runs out of both fuel and inertia or fails to beat the boss, the game 
+is lost. Otherwise, successfully reaching the end and beating the boss results in a win. 
+Later levels can only be reached after earlier levels are beaten. 
+
+
+
+Each level has the following game flow logic: 
+
+
+
+10 
+
+
+
+Players can perform 3 key-triggered actions: propelling upwards, grabbing gems, and 
+throwing gems. Basic moving around is controlled by mouse-clicks: the player clicks 
+where they want the hiker to go, and the length of time they hold down the mouse click 
+for determines how much fuel / thrust is used by the jetpack to move (longer click = 
+higher thrust = faster speed). 
+
+
+
+11 
+
+
+
+3.3.2 
+User 
+Solution/Actions 
+The player wins the game by making it to the end of a level and beating the boss without 
+running out of gems or inertia. 
+
+
+3.4 
+Software Versions 
+3.4.1 
+Alpha 
+Version 
+Features 
+(vertical 
+slice 
+through 
+total 
+experience) 
+The following basic gameplay features will be implemented: 
+
+
+● 
+Player can propel through a simple environment while collecting gems 
+● 
+Obstacles (pillars, ice ponds) should be present and interact with player correctly 
+○ 
+Player stops moving when hitting a pillar 
+○ 
+Player loses percentage of collected gems if entered an ice pond 
+● 
+Cave walls for players to smash through 
+3.4.2 
+Beta 
+Version 
+Features 
+Some of the more complex mechanics in the game will be implemented, and the major 3d 
+assets will be introduced. 
+
+
+● 
+We will include a fuel monitor, which keeps track of the fuel level of the player 
+● 
+Introduce upward propulsion 
+12 
+
+
+
+● 
+Import 3D gem models 
+○ 
+Differentiate between different types of gems: add rubies 
+● 
+Snowman boss battle 
+3.4.3 
+Descriptions 
+of 
+any 
+tutorial 
+levels 
+and/or 
+self-running 
+Demos 
+None 
+
+
+4 
+WORK 
+PLAN 
+
+
+4.1 
+Tasks 
+Description 
+Time 
+Member 
+1 
+Task: Cave 
+Navigation 
+All necessary movements in 
+the cave. 
+7 days 
+AC 
+1.1 
+Subtask: Floor 
+Navigation 
+The player should be able to 
+glide on the cave floor. 
+4 day 
+AC 
+1.2 
+Subtask: Wall 
+Navigation 
+The player should be able to 
+fly up the cave walls. 
+3 day 
+AC 
+2 
+Task: Gem 
+Collection 
+Player should be able to 
+collect the gems located in 
+the cave. 
+3 day 
+AC/EL 
+2.1 
+Subtask: Collision 
+Detection 
+If a player is within a certain 
+radius of the gem, they can 
+collect the gem, also the gem 
+changes color 
+3 day 
+AC/EL 
+3 
+Task: UI 
+Making the UI be user 
+friendly and look nice. 
+4 days 
+SX 
+3.1 
+Subtask: Make the 
+in-game screen/UI 
+Make the level user friendly. 
+2 days 
+SX 
+3.2 
+Subtask: Making the 
+end game screen 
+Make both screens where the 
+player wins and loses 
+2 days 
+SX 
+4 
+Task: Collisions 
+Make sure the appropriate 
+actions result from certain 
+collisions 
+5 days 
+EL 
+
+
+13 
+
+
+
+4.1 
+Subtask: Cave 
+Wall/Pillars 
+Make sure the player cannot 
+walk through cave walls/pillars 
+and can destroy the cave walls 
+1 day 
+EL 
+4.2 
+Subtask: Frozen Ponds 
+Make sure the game recognizes 
+collisions with frozen ponds 
+and loses gems when occurs 
+2 day 
+EL 
+4.3 
+Subtask: Snowman 
+Roars 
+Make sure if that the snowman 
+roar pushes the player back in 
+the cave unless located behind 
+a ice pillar/rock/wall 
+2 days 
+EL 
+5 
+Task: Snowman 
+Battle 
+Make the snowman smaller 
+when a gem is thrown at it 
+3 day 
+SX 
+6 
+Task Level Design 
+Design the gameplay level 
+3 days 
+AC, SX, EL 
+6.1 
+Subtask: Tuning 
+Tune how many resources the 
+player should get at each 
+interval of game play 
+3 days 
+AC, SX, EL 
+7 
+Task: Effects 
+All Visual and Audio Effects 
+16 days 
+AC, SX, EL 
+7.1 
+Subtask: Modeling, 
+Shading, Lighting and 
+Animation 
+Make the cave model, create an 
+ice shader, light the cave, add 
+snow particles in the air, and 
+animate the abominable 
+snowman 
+14 days 
+AC, SX, EL 
+7.2 
+Subtask: Audio 
+Make sound effects for 
+different collisions and 
+background music 
+2 days 
+AC, SX, EL 
+8 
+Task: 
+Scoring/GameTesting 
+Score the player and make 
+sure the components work 
+5 days 
+AC, SX, EL 
+
+
+4.2 
+Milestones 
+4.2.1 
+Minor 
+● 
+Cave Navigation 
+● 
+Gem Collection 
+● 
+Game UI 
+● 
+Cave/Environment Collisions 
+● 
+Abominable Snowman Battle 
+14 
+
+
+
+● 
+Effects 
+● 
+Modeling 
+● 
+Animation 
+● 
+Shading 
+● 
+Lighting 
+● 
+Sound Effects 
+4.2.2 
+Major 
+Alpha 
+Version 
+
+
+The alpha version should just have the core mechanics of the game - namely, the player 
+should be able to propel themselves through a simple environment while collecting gems. 
+The player should lose a percentage of their collected gems if they enter an ice pond, 
+should not be able to walk through the cave walls or pillars, and should be able to “melt” 
+the abominable monster and collect the goal-driven gem at the end of the level. 
+
+
+Beta 
+Versions 
+
+
+The beta version should have more complex mechanics in the game. Through playtesting 
+we will include a fuel monitor which will calculate the fuel used and gained from the 
+gems in the cave. There will be the introduction of major 3d assets to transport the player 
+into the ice cave. There will be some basic animation and audio. 
+
+
+4.3 
+Development Schedule 
+Ice Gems Gantt Chart 
+15 
+
+
+
+16 
+
+
+
