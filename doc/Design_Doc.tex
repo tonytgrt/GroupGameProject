@@ -623,17 +623,97 @@ approximately five weeks of part-time development.
     \subsection{Software Versions}
 
         \subsubsection{Alpha Version}
-        % TODO: List features included in the Alpha (vertical slice):
-        %       one playable level, core shadow mechanic, light source drag, blocking
-        %       object slide, basic UI.
+        \textit{Due: Wed.\ Mar.\ 18.} The Alpha is a vertical slice demonstrating
+        all core mechanics in a single fully playable level.
+
+        \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+            \item \textbf{Core shadow mechanic.} Real-time dynamic shadows via
+                  UE5 Lumen; shadow-covered regions are mapped to runtime
+                  collision volumes so the Orb can traverse them. Lit regions
+                  are void; the Orb falls and respawns if it enters one.
+            \item \textbf{Lantern drag.} One portable lantern freely draggable
+                  within its boundary constraint; shadow updates continuously.
+            \item \textbf{Blocking objects and pressure plates.} One or two
+                  blocking objects that slide to designer-specified stop
+                  positions when the Orb steps on the corresponding pressure
+                  plate.
+            \item \textbf{Orb physics.} Keyboard-driven sphere with UE5
+                  physics: gravity, rolling friction, and respawn on fall.
+            \item \textbf{One playable level.} \textit{Level 1 --- The
+                  Collapsed Bridge}: a single self-contained puzzle using the
+                  lantern and two blocking pillars to span a central chasm.
+            \item \textbf{Minimal UI.} Level name display and a Reset button
+                  (returns all objects and the Orb to start positions).
+            \item \textbf{Placeholder art and audio.} Untextured geometry and
+                  placeholder sound cues sufficient for playtesting.
+        \end{itemize}
 
         \subsubsection{Beta Version}
-        % TODO: List additional features for Beta: multiple levels, polished
-        %       art/audio, hint system, level select screen.
+        \textit{Due: Wed.\ Mar.\ 25.} The Beta expands the Alpha to a
+        complete multi-level experience with polished content and secondary
+        mechanics.
+
+        \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+            \item \textbf{Spotlight rotation.} Wall-mounted spotlights
+                  freely rotatable within their angular range; directed-cone
+                  shadow updates continuously.
+            \item \textbf{All puzzle levels.} \textit{Level 2 --- The Torch
+                  Hall} (spotlights + blocking objects) and \textit{Level 3
+                  --- The Inner Sanctum} (combined mechanics) added and
+                  playable end-to-end.
+            \item \textbf{Tutorial level.} \textit{The Antechamber} included
+                  with on-screen prompts (see \S3.4.3).
+            \item \textbf{Level-select screen.} Main menu listing all four
+                  spaces; completed levels are marked unlocked.
+            \item \textbf{Victory screen.} Displayed after completing all
+                  three puzzle levels.
+            \item \textbf{Polished art.} Textured Roman-ruin geometry,
+                  particle effects on light sources, and atmospheric skybox.
+            \item \textbf{Polished audio.} Ambient music track, distinct
+                  sound cues for lantern drag, spotlight rotation, blocker
+                  slide, Orb fall, and level completion.
+            \item \textbf{Hover highlights.} Interactable objects highlight
+                  on mouse-over to communicate affordance clearly.
+            \item \textbf{Bug fixes and playtest feedback.} Issues identified
+                  in the Alpha playtest resolved; puzzle difficulty tuned.
+        \end{itemize}
 
         \subsubsection{Tutorials}
-        % TODO: Describe the in-game tutorial or introductory level that teaches
-        %       the shadow mechanic, light source dragging, and blocking object sliding.
+        The tutorial level (\textbf{The Antechamber}) is a short, guided
+        introduction that teaches all three interaction mechanics in sequence
+        with no dead ends and no prior knowledge required.
+
+        \begin{enumerate}[leftmargin=1.5em, itemsep=4pt]
+            \item \textbf{Shadow mechanic introduction.} A single gap
+                  separates the Orb from a small platform. A lantern is
+                  already positioned so its shadow almost spans the gap.
+                  An on-screen prompt reads: \textit{``Drag the lantern to
+                  cast a shadow bridge.''}  The player adjusts the lantern;
+                  the shadow snaps across the gap.  A second prompt reads:
+                  \textit{``Walk across the shadow.''}  Rolling the Orb
+                  across confirms that shadows are solid and lit regions are
+                  void.
+
+            \item \textbf{Pressure-plate and blocking-object introduction.}
+                  The Orb arrives at a second gap. A pressure plate is
+                  visible on the current platform, and a blocking pillar
+                  stands nearby. An on-screen prompt reads: \textit{``Step
+                  on the pressure plate to move the pillar.''}  The Orb
+                  rolls onto the plate; the pillar slides to its second stop,
+                  extending the lantern's shadow across the second gap.  The
+                  player rolls the Orb across to complete the level.
+
+            \item \textbf{Respawn demonstration (optional).}  If the player
+                  rolls the Orb into a lit gap before completing either step,
+                  the fall animation plays and the Orb respawns at the level
+                  start with all objects in their current positions.  No
+                  explicit prompt is shown; the mechanic is self-evident.
+        \end{enumerate}
+
+        On-screen prompts appear as brief text overlays anchored to the
+        relevant object and disappear automatically once the player performs
+        the indicated action. No prompts appear in the three main puzzle
+        levels; the tutorial is the only guided section of the game.
 
 % ─── 4. Work Plan ────────────────────────────────────────────────────────────
 \section{Work Plan}
