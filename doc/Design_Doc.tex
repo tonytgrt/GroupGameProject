@@ -350,16 +350,48 @@ approximately five weeks of part-time development.
     \subsection{Performance and Scoring}
 
         \subsubsection{State Variables}
-        % TODO: List game state variables tracked at runtime (light source positions/
-        %       orientations, blocking object stop positions, level completion flag, etc.).
+        The following variables are tracked at runtime for each level:
+
+        \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+            \item \textbf{Orb position.} The current world-space position of the Orb.
+                  Reset to the level start position on fall or player reset.
+            \item \textbf{Lantern position} (one per lantern). The current world-space
+                  position of each portable lantern within its movement boundary.
+            \item \textbf{Spotlight angle} (one per spotlight). The current rotation
+                  angle of each wall-mounted spotlight about its fixed mount point.
+            \item \textbf{Blocking object stop index} (one per blocking object). The
+                  index of the currently occupied stop position along each object's
+                  fixed trajectory.
+            \item \textbf{Level completion flag.} Set to true when the Orb enters the
+                  exit gate; triggers the level-complete transition.
+            \item \textbf{Levels unlocked.} A persistent list of which puzzle levels
+                  have been completed, used to populate the level-select screen.
+        \end{itemize}
 
         \subsubsection{Feedback}
-        % TODO: Describe visual/audio feedback given to the player (shadow
-        %       updates, success/failure cues, hints, etc.).
+        \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+            \item \textbf{Live shadow update.} The shadow boundary redraws continuously
+                  as the player drags any light source or blocking object, giving
+                  immediate visual confirmation of every change.
+            \item \textbf{Object hover highlight.} Interactable objects are visually
+                  highlighted when the mouse cursor hovers over them, indicating they
+                  can be manipulated.
+            \item \textbf{Orb fall.} When the Orb enters a lit gap it plays a brief
+                  fall animation and audio cue before respawning at the level start.
+                  No objects are moved.
+            \item \textbf{Level complete.} Entering the exit gate triggers a short
+                  completion animation and a distinct audio cue, followed by an
+                  automatic transition to the next level.
+            \item \textbf{Interaction sounds.} Distinct sound cues play for lantern
+                  drag start/end, spotlight rotation, and blocking object slide.
+        \end{itemize}
 
         \subsubsection{Performance and Progress Metrics}
-        % TODO: Describe how player performance is measured and displayed
-        %       (move count, time, star rating, level select, etc.).
+        Umbra does not record scores, star ratings, move counts, or elapsed time.
+        Performance is binary: a level is either complete or not. The only persistent
+        metric is the set of levels the player has completed, which unlocks them on
+        the level-select screen. There is no leaderboard, no in-game timer display,
+        and no penalty for resetting or falling.
 
 % ─── 3. Implementation ───────────────────────────────────────────────────────
 \section{Implementation}
