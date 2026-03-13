@@ -8,7 +8,7 @@
 AUmbraPuzzleGameMode::AUmbraPuzzleGameMode()
 {
 	DefaultPawnClass = AUmbraPawn::StaticClass();
-	PlayerControllerClass = the the ::StaticClass();
+	PlayerControllerClass = AUmbraPawnController::StaticClass();
 }
 
 void AUmbraPuzzleGameMode::ResetLevel()
