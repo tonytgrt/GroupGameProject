@@ -10,6 +10,7 @@ class USphereComponent;
 class UStaticMeshComponent;
 class USpringArmComponent;
 class UCameraComponent;
+class UFloatingPawnMovement;
 
 UCLASS()
 class AUmbraPawn : public APawn
@@ -40,19 +41,21 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UCameraComponent> TopDownCamera;
 
-	/** Force applied per unit of input */
-	UPROPERTY(EditAnywhere, Category = "Movement")
-	float MoveForce = 800.f;
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UFloatingPawnMovement> FloatingMovement;
 
-	/** Physics damping — tune in editor */
+	/** How far down to trace for ground */
 	UPROPERTY(EditAnywhere, Category = "Movement")
-	float LinearDamping = 2.f;
-
-	UPROPERTY(EditAnywhere, Category = "Movement")
-	float AngularDamping = 1.f;
+	float GroundTraceDepth = 200.f;
 
 	/** Cached input from controller */
 	FVector2D CurrentMoveInput;
+
+	/** Trace downward to snap to floor; returns true if floor found */
+	bool SnapToGround();
+
+	/** Check if there is floor at the given world position */
+	bool HasFloorAt(FVector Location) const;
 
 	// --- Shadow check (Phase 1) ---
 	void PerformShadowCheck();
