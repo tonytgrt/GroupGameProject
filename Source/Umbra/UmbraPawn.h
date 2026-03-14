@@ -3,17 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
 #include "UmbraPawn.generated.h"
 
-class USphereComponent;
 class UStaticMeshComponent;
 class USpringArmComponent;
 class UCameraComponent;
-class UFloatingPawnMovement;
 
 UCLASS()
-class AUmbraPawn : public APawn
+class AUmbraPawn : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -25,13 +23,7 @@ public:
 	/** Called by controller each tick with WASD input */
 	void SetMoveInput(FVector2D Input);
 
-protected:
-	virtual void BeginPlay() override;
-
 private:
-	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<USphereComponent> CollisionSphere;
-
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UStaticMeshComponent> PawnMesh;
 
@@ -41,21 +33,8 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UCameraComponent> TopDownCamera;
 
-	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<UFloatingPawnMovement> FloatingMovement;
-
-	/** How far down to trace for ground */
-	UPROPERTY(EditAnywhere, Category = "Movement")
-	float GroundTraceDepth = 200.f;
-
 	/** Cached input from controller */
 	FVector2D CurrentMoveInput;
-
-	/** Trace downward to snap to floor; returns true if floor found */
-	bool SnapToGround();
-
-	/** Check if there is floor at the given world position */
-	bool HasFloorAt(FVector Location) const;
 
 	// --- Shadow check (Phase 1) ---
 	void PerformShadowCheck();
